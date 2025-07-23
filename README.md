@@ -26,13 +26,21 @@ The columns should be formatted as follows (case-sensitive):
 If you are unsure of the formatting, run the web app and generate a sample dataset as a "testing" dataset
 
 ## Quick start
-Run through Powershell/Terminal
 
+### Windows
+#### Run through Powershell
+
+
+Download the file into your OS or use the following git clone script
 ```bash
 git clone https://github.com/ACF808/wattwatcher-ai.git
+```
+
+Then paste this script into powershell
+```bash
 cd wattwatcher-ai
-python -m venv venv            #windows
-.\venv\Scripts\activate        # Windows
-# source venv/bin/activate                            # macOS / Linux
+python -m venv venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python -m streamlit run web_app.py
