@@ -40,3 +40,12 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python -m streamlit run web_app.py
+```
+
+### macOS
+#### Run through Terminal
+
+Paste this script and click return
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ACF808/wattwatcher-ai/main/bootstrap_macos.sh)"
+```
