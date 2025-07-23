@@ -15,6 +15,15 @@ WattWatcher-AI ingests *Voltage, Current,* and *RPM* telemetry, learns a “norm
 - flags anomalies in real time  
 - plots trends with red worry-spots  
 
+## Dataset
+
+When uploading your own dataset, it should be a .xlsx or a .csv file. 
+
+The columns should be formatted as follows (case-sensitive):
+| Date/Timestamp | Current | Voltage | speed_rpm |
+
+If you are unsure of the formatting, run the web app and generate a sample dataset as a "testing" dataset
+
 ## Quick start
 Run through Powershell/Terminal
 
