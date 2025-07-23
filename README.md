@@ -31,7 +31,8 @@ Run through Powershell/Terminal
 ```bash
 git clone https://github.com/ACF808/wattwatcher-ai.git
 cd wattwatcher-ai
-python -m venv venv && .\venv\Scripts\activate        # Windows
+python -m venv venv            #windows
+.\venv\Scripts\activate        # Windows
 # source venv/bin/activate                            # macOS / Linux
 pip install -r requirements.txt
 python -m streamlit run web_app.py
