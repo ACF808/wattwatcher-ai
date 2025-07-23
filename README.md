@@ -28,16 +28,12 @@ If you are unsure of the formatting, run the web app and generate a sample datas
 ## Quick start
 
 ### Windows
-#### Run through Powershell
+#### Run through Powershell/Terminal
 
 
-Download the file into your OS or use the following git clone script
+Paste the following script into Powershell, the requirements will take a few minutes to fully install so be patient.
 ```bash
 git clone https://github.com/ACF808/wattwatcher-ai.git
-```
-
-Then paste this script into powershell
-```bash
 cd wattwatcher-ai
 python -m venv venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
