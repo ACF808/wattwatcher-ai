@@ -46,6 +46,5 @@ python -m streamlit run web_app.py
 #### Run through Terminal
 
 Paste this script and click return
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ACF808/wattwatcher-ai/main/bootstrap_macos.sh)"
-```
+
+**idk how to do mac
