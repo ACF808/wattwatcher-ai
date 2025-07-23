@@ -47,10 +47,10 @@ with tabs[0]:
         # Show plot image
         img_path = newest / "telemetry_with_anomalies.png"
         if img_path.exists():
-            st.image(str(img_path), caption="Trend plot with anomalies", use_column_width=True)
+            st.image(str(img_path), caption="Trend plot with anomalies", use_container_width=True)
 
 # ------------------------------------------------------------------
-#  TAB 2  –  Generate synthetic dataset
+# TAB 2 – Generate synthetic dataset
 # ------------------------------------------------------------------
 with tabs[1]:
     st.header("Create a synthetic test CSV")
@@ -59,20 +59,24 @@ with tabs[1]:
     n_anom   = st.slider("Number of anomalies", 1, 20, 5)
 
     if st.button("Generate & Download"):
-        # Build random normal data
+        # --------------- normal points ----------------------------
         start_ts = datetime.now().replace(microsecond=0, second=0)
-        ts = [start_ts + timedelta(seconds=i) for i in range(n_normal)]
-        cur = np.random.normal(1.6, 0.05, n_normal)
-        volt = np.random.normal(12.0, 0.08, n_normal)
-        rpm = np.random.normal(8000, 80, n_normal)
+        ts    = [start_ts + timedelta(seconds=i) for i in range(n_normal)]
+        cur   = np.random.normal(1.6, 0.05, n_normal)
+        volt  = np.random.normal(12.0, 0.08, n_normal)
+        rpm   = np.random.normal(8000, 80,  n_normal)
 
-        # Append simple anomalies (high current + low rpm)
-        for i in range(n_anom):
-            ts.append(ts[-1] + timedelta(seconds=1))
-            cur = np.append(cur, 3.5)
-            volt = np.append(volt, 11.7)
-            rpm = np.append(rpm, 2000)
+        # --------------- INSERT anomalies at random positions ----
+        for _ in range(n_anom):
+            idx = np.random.randint(0, len(ts))      # random slot
 
+            ts.insert(idx, ts[idx - 1] + timedelta(seconds=1))
+
+            cur  = np.insert(cur,  idx, 3.5 + np.random.normal(0, 0.03))
+            volt = np.insert(volt, idx, 11.7 + np.random.normal(0, 0.03))
+            rpm  = np.insert(rpm,  idx, 2000 + np.random.normal(0, 50))
+
+        # --------------- build DataFrame & download --------------
         df_gen = pd.DataFrame({
             "Date": ts,
             "Current": np.round(cur, 3),
@@ -80,7 +84,6 @@ with tabs[1]:
             "speed_rpm": rpm.astype(int)
         })
 
-        # Offer file download
         csv = df_gen.to_csv(index=False).encode()
         st.download_button(
             "Download CSV",
@@ -88,6 +91,7 @@ with tabs[1]:
             file_name="synthetic_telemetry.csv",
             mime="text/csv"
         )
+
 
         # Optional immediate analysis
         if st.checkbox("Run the model on this synthetic file now"):
@@ -98,7 +102,7 @@ with tabs[1]:
             st.success(f"Analysis complete! Results in `{newest}`")
             st.image(str(newest / "telemetry_with_anomalies.png"),
                      caption="Trend plot for synthetic data",
-                     use_column_width=True)
+                     use_container_width=True)
 
 st.markdown(
 "> ⚠️ Suggestions are generated automatically for educational purposes only "
