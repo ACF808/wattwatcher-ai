@@ -1,0 +1,4 @@
+Date,Current,Voltage,speed_rpm,anomaly_score,suggestion
+2025-07-22 17:00:55,3.4,11.9,2100,0.07819385591102335,Check for mechanical jam / overload.
+2025-07-22 17:00:56,3.5,11.8,1900,0.10298767202601289,Check for mechanical jam / overload.
+2025-07-22 17:00:57,1.7,10.4,7900,0.05838506738632354,Inspect power wiring or battery health.
