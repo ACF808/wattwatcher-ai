@@ -30,10 +30,13 @@ If you are unsure of the formatting, run the web app and generate a sample datas
 ### Windows
 #### Run through Powershell/Terminal
 
-
-Paste the following script into Powershell, the requirements will take a few minutes to fully install so be patient.
+First, in order to install the model, paste this into powershell (first time only)
 ```bash
 git clone https://github.com/ACF808/wattwatcher-ai.git
+```
+
+Once that's done installing, paste the following script into Powershell and hit enter. The requirements will take a few minutes to fully install the first time so be patient.
+```bash
 cd wattwatcher-ai
 python -m venv venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
