@@ -12,7 +12,8 @@ def suggest_fix(row):
     cur, volt, rpm = row[FEATURE_COLUMNS].values
     mean_cur, mean_volt, mean_rpm = row.means
     tips = []
-    if cur > 1.5 * mean_cur and rpm < 0.8 * mean_rpm:
+    #uses thresholds to suggest errors
+    if cur > 1.5 * mean_cur and rpm < 0.8 * mean_rpm:  
         tips.append("Check for mechanical jam / overload.")
     if volt < 0.9 * mean_volt:
         tips.append("Inspect power wiring or battery health.")
