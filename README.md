@@ -50,4 +50,4 @@ python -m streamlit run web_app.py
 
 Paste this script and click return
 
-**idk how to do mac
+**idk how to do mac, still figuring it out, work-in-progress :(
