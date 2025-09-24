@@ -30,7 +30,17 @@ If you are unsure of the formatting, run the web app and generate a sample datas
 ### Windows
 #### Run through Powershell/Terminal
 
-First, in order to install the model, paste this into powershell (first time only)
+Prior to installing the model, ensure you have git installed on your computer by running this command in powershell
+'''bash
+git --version
+'''
+
+If you get an error, install the latest version of git at the website linked below, if not, skip to the installation
+https://git-scm.com/downloads/win
+
+Once it is installed, proceed with the installation of the model.
+
+In order to install the model, paste this into powershell (first time only)
 ```bash
 git clone https://github.com/ACF808/wattwatcher-ai.git
 ```
@@ -51,3 +61,4 @@ python -m streamlit run web_app.py
 Paste this script and click return
 
 **idk how to do mac, still figuring it out, work-in-progress :(
+
