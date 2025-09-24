@@ -35,8 +35,9 @@ Prior to installing the model, ensure you have git installed on your computer by
 git --version
 '''
 
-If you get an error, install the latest version of git at the website linked below, if not, skip to the installation
-https://git-scm.com/downloads/win
+If you get an error, install the latest version of git at the website linked here: https://git-scm.com/downloads/win
+if not, skip to the installation
+
 
 Once it is installed, proceed with the installation of the model.
 
@@ -61,4 +62,5 @@ python -m streamlit run web_app.py
 Paste this script and click return
 
 **idk how to do mac, still figuring it out, work-in-progress :(
+
 
