@@ -7,7 +7,7 @@ from .model import train_iforest
 from .plot import plot_signals
 from .config import FEATURE_COLUMNS, TIMESTAMP_COL
 
-# --- simple suggestion rules ------------------------------------------
+#simple suggestion rules
 def suggest_fix(row):
     cur, volt, rpm = row[FEATURE_COLUMNS].values
     mean_cur, mean_volt, mean_rpm = row.means
@@ -21,7 +21,6 @@ def suggest_fix(row):
         tips.append("Investigate sensor noise or unusual load.")
     return "; ".join(tips)
 
-# ----------------------------------------------------------------------
 def main(path):
     data_path = Path(path)
     df, X_scaled = load_and_scale(data_path)
@@ -39,9 +38,7 @@ def main(path):
         .apply(suggest_fix, axis=1)
     )
 
-    # ------------------------------------------------------------------
     #  Create a unique run folder: outputs/<timestamp>_runN
-    # ------------------------------------------------------------------
     from datetime import datetime
     base_ts = datetime.now().strftime("%Y%m%d_%H%M%S")
     root    = Path("outputs")
@@ -57,9 +54,7 @@ def main(path):
         except FileExistsError:
             run_num += 1            # try the next number
 
-    # ------------------------------------------------------------------
     #  Save full report + suggestions-only report
-    # ------------------------------------------------------------------
     full_report = out_dir / "anomaly_report.csv"
     df.to_csv(full_report, index=False)
 
@@ -69,14 +64,10 @@ def main(path):
         sugg_rows.to_csv(out_dir / "suggestions_only.csv",
                          columns=keep, index=False)
 
-    # ------------------------------------------------------------------
     #  Plot
-    # ------------------------------------------------------------------
     plot_path = plot_signals(df, preds, out_dir)
   
-    # ------------------------------------------------------------------
     #  Console summary
-    # ------------------------------------------------------------------
     print(f"\nOutputs folder : {out_dir}")
     print(f"  • Full report       : {full_report.name}")
     if not sugg_rows.empty:
@@ -87,11 +78,9 @@ def main(path):
           "purposes only and are NOT an official electrical diagnosis.\n")
 
 
-# ------------------ KEEP THIS AT LEFT EDGE ------------------
 if __name__ == "__main__":
     import argparse, pathlib
     parser = argparse.ArgumentParser(description="AI motor/electrical diagnostics")
     parser.add_argument("--file", required=True, help="Path to CSV or Excel file")
     args = parser.parse_args()
     main(args.file)
-# ------------------------------------------------------------
