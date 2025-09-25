@@ -10,5 +10,6 @@ def train_iforest(X_scaled):
     )
     clf.fit(X_scaled)
     preds  = clf.predict(X_scaled)           # −1 = anomaly, 1 = normal
-    scores = -clf.decision_function(X_scaled)  # higher ⇒ more anomalous
+    scores = -clf.decision_function(X_scaled)  # higher -> more anomalous
     return preds, scores
+
