@@ -25,21 +25,41 @@ The columns should be formatted as follows (case-sensitive):
 
 If you are unsure of the formatting, run the web app and generate a sample dataset as a "testing" dataset
 
-## Quick start
+# Quick start
 
-### Windows
-#### Run through Powershell/Terminal
+## Windows (Run through Powershell/Terminal)
 
-Prior to installing the model, ensure you have git installed on your computer by running this command in powershell
-'''bash
+### Prerequisites
+
+Before installing and running the project, make sure the following tools are installed. Run each command below in PowerShell. If you see an error for any step, follow the installation link provided.
+
+```bash
+# Check if Git is installed
 git --version
-'''
+```
+If you get an error, install Git from: https://git-scm.com/downloads
 
-If you get an error, install the latest version of git at the website linked here: https://git-scm.com/downloads/win
-if not, skip to the installation
+After installation, restart PowerShell and run the command again.
 
+```bash
+# Check if Python is installed
+python --version
+```
+If you get an error, install Python from: https://www.python.org/downloads/windows/
 
-Once it is installed, restart your terminal and proceed with the installation of the model.
+Make sure to check the box that says "Add Python to PATH" during installation.
+After installation, restart PowerShell and try again.
+
+```bash
+# Check if pip (Python’s package manager) is installed
+pip --version
+```
+If pip is not recognized, it likely means Python wasn't added to PATH correctly.
+Reinstall Python and make sure the "Add to PATH" option is selected.
+
+Once you’ve confirmed all of the above are working, you can proceed to install and run the project below.
+
+### Installation
 
 In order to install the model, paste this into powershell (first time only)
 ```bash
@@ -62,6 +82,7 @@ python -m streamlit run web_app.py
 Paste this script and click return
 
 **idk how to do mac, still figuring it out, work-in-progress :(
+
 
 
 
