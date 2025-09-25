@@ -39,7 +39,7 @@ If you get an error, install the latest version of git at the website linked her
 if not, skip to the installation
 
 
-Once it is installed, proceed with the installation of the model.
+Once it is installed, restart your terminal and proceed with the installation of the model.
 
 In order to install the model, paste this into powershell (first time only)
 ```bash
@@ -62,5 +62,6 @@ python -m streamlit run web_app.py
 Paste this script and click return
 
 **idk how to do mac, still figuring it out, work-in-progress :(
+
 
 
